@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+/*全体へ適用*/
+body
+    {
+        margin: 0;					/*ブラウザの上下左右の余白を消す*/
+        font-family: 'メイリオ';	/*サイト内のフォント種類を指定*/
+    }
+
+/*各見出しの設定*/
+h1
+    {
+        padding-bottom: 10px;	/*下に余白を設ける*/
+    }
+
+h2
+    {
+        padding-top: 15px;	/*上に余白を設ける*/
+        margin-bottom: 0;	/*border外側の下に余白を設ける*/
+    }
+
+h3 
+    {
+        margin-bottom: 0;	/*border外側の下に余白を設ける*/
+    }
+
+/*段落の設定*/
+p
+    {
+        margin-top: 0;	/*見出しと文章の余白を埋める*/
+        margin-bottom: 30px;	/*次コンテンツとの余白を設ける*/
+    }
+
+/*ここからは各コンテンツのdivに設定するClassを管理しています*/
+
+/*画像の上下左右に余白を設ける*/    
+.img-margin
+    {
+        padding: 20px;
+    }
+
+/*ゲームタイトル表示部分*/
+.top
+    {
+		color: #ffffff;	/*文字色変更*/
+        text-align: center;	/*コンテンツを中央に寄せる*/
+        padding-top: 70px;	/*ページ上のコンテンツ表示位置を、ヘッダー下になるように*/
+		background-color: #a549bc;	/*背景色を指定*/
+        width: 100%;	/*横幅を画面全体へ広げる*/
+    }
+
+/*「概要～挑戦したこと」までは、同じなのでうまく一つにまとめてもOK（そうする方が正しいはず…）*/
+
+/*概要*/
+.overview
+    {
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*詳細*/
+.detail
+    {
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*制作背景*/
+.reason
+    {
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*挑戦したこと*/
+.try
+    {
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*工夫したこと*/
+.ingenuity
+    {
+        text-align: center;		/*コンテンツを中央に寄せる*/
+		margin-bottom: 100px;	/*コンテンツの下に余白を設ける*/
+    }
