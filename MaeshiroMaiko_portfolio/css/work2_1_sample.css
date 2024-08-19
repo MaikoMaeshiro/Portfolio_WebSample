@@ -88,6 +88,12 @@ article
         text-align: center;		/*コンテンツを中央に寄せる*/
     }
 
+/*＜詳細classにのみに適用するタグ＞*/
+.detail p
+    {
+        margin-top: 0px;        /*borderの外側上に余白を設けて、レイアウトを調整する*/
+    }
+
 /*＜制作背景＞*/
 .reason
     {
@@ -126,7 +132,7 @@ article
 
 .ingenuity p
     {
-        margin-top: 10px;        /*border外側の上に余白を設ける*/
-        margin-bottom: 5px;
+        margin-top: 0px;        /*border外側の上に余白を設ける*/
+        margin-bottom: 5px;     /*border外側の下に余白を設ける*/
         line-height: 20px;      /* 行間を指定する */
     }
