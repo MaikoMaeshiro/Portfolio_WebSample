@@ -66,6 +66,7 @@ hr
 article
 {
     position:relative;      /*表示位置を適切なところにするために設定*/
+    margin-bottom:0;
     padding: 10px;
     text-align: center;
 }
@@ -134,3 +135,57 @@ p.explanation
     {
         font-size: 10px;        /*画像下に載せる文章を小さくする*/
     }
+
+
+/*＜アニメーション実験＞Gemini提案版*/
+
+/* スライドショーのコンテナ */
+.slideshow-container {
+    width: 100%; /* 幅を調整 */
+    height: auto;
+    position: relative;
+    overflow: hidden; /* コンテナからはみ出る画像を隠す */
+  }
+  
+  /* 画像共通のスタイル */
+  .slideshow-image {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* すべての画像を同じ位置に重ねる */
+    top: 0;
+    left: 0;
+    opacity: 0; /* 最初はすべての画像を非表示にする */
+    animation: fade-in-out 15s infinite; /* アニメーションの設定 */
+  }
+  
+  /* 各画像にアニメーションの遅延を設定 */
+  .slideshow-image:nth-child(1) {
+    animation-delay: 0s; /* 1枚目の画像 */
+  }
+  
+  .slideshow-image:nth-child(2) {
+    animation-delay: 5s; /* 2枚目の画像は5秒遅れて開始 */
+  }
+  
+  .slideshow-image:nth-child(3) {
+    animation-delay: 10s; /* 3枚目の画像は10秒遅れて開始 */
+  }
+  
+  /* アニメーションのキーフレーム */
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    33.33% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
