@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+/*＜全体へ適用＞*/
+body
+    {
+        margin: 0;					/*ブラウザの上下左右の余白を消す*/
+        font-family: 'メイリオ';	/*サイト内のフォント種類を指定*/
+    }
+
+/*＜各見出しの設定＞*/
+h1
+    {
+        padding-bottom: 10px;	/*下に余白を設ける*/
+    }
+
+h2
+    {
+        color:#a549bc;          /*文字色を変更*/
+        padding-top: 15px;       /*上に余白を設ける*/
+        margin-bottom: 0;	    /*border外側の下に余白を設ける*/
+    }
+
+h3 
+    {
+        margin-bottom: 0;        /*border外側の下に余白を設ける*/
+    }
+
+/*＜段落の設定＞*/
+p
+    {
+        padding-top: 5px;       /*レイアウト調整のため、コンテンツの内側に余白を作る*/
+        margin-top: 0;      	/*見出しと文章の余白を埋める*/
+        margin-bottom: 30px;	/*次コンテンツとの余白を設ける*/
+    }
+
+/*＜水平線のデザイン＞*/
+hr
+    {
+		width: 1100px;							/*線の幅を指定する*/
+		height: 1px;							/*線の高さ指定するを*/
+		border: none;							/*立体的な線にならないようにnoneを設定する*/
+		border-top: 1px #aaaaaa solid;			/*上側だけ、設定した内容で線が引かれるように設定する*/
+    }
+
+/*----------------------------------------------------
+ここからは各コンテンツのdivに設定するClassを管理しています
+----------------------------------------------------*/
+
+/*＜画像の上下左右に余白を設ける＞*/    
+.img-margin
+    {
+        padding: 20px;      /*レイアウト調整のため、コンテンツの内側に余白を作る*/
+    }
+
+/*＜ゲームタイトル表示部分＞*/
+.top
+    {
+		color: #ffffff;	/*文字色変更*/
+        text-align: center;	/*コンテンツを中央に寄せる*/
+        padding-top: 70px;	/*ページ上のコンテンツ表示位置を、ヘッダー下になるように*/
+		background-color: #a549bc;	/*背景色を指定*/
+        width: 100%;	/*横幅を画面全体へ広げる*/
+    }
+
+/*＜画像コンテンツ＞*/
+article
+{
+    position:relative;      /*表示位置を適切なところにするために設定*/
+    margin-bottom:0;
+    padding: 10px;
+    text-align: center;
+}
+
+/*---------------------------------------------------------------------------------
+「概要～挑戦したこと」までは、同じなのでうまく一つにまとめてもOK（そうする方が正しいはず…）
+---------------------------------------------------------------------------------*/
+
+/*＜1つの箱で画像を重ねて配置する＞*/
+
+.img-animation
+    {
+        position:absolute;      /*画像を重ねるために設定*/
+		top: 220px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+    }
+
+/*＜概要＞*/
+.overview
+    {
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*＜詳細＞*/
+.detail
+    {
+		margin-top: 440px;		/*画像を重ねて表示しているため、コンテンツの表示位置を下にする*/
+        padding-bottom: 5px;    /*レイアウト調整のため、コンテンツの内側下にのみ余白を作る*/
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*＜制作背景＞*/
+.reason
+    {
+        padding: 5px;           /*レイアウト調整のため、コンテンツの内側に余白を作る*/
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*＜挑戦したこと＞*/
+.try
+    {
+        padding: 5px;          /*レイアウト調整のため、コンテンツの内側に余白を作る*/
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*＜学んだこと＞*/
+.learn
+    {
+        padding: 5px;           /*レイアウト調整のため、コンテンツの内側に余白を作る*/
+        text-align: center;		/*コンテンツを中央に寄せる*/
+    }
+
+/*＜工夫したこと＞*/
+.ingenuity
+    {
+        padding: 5px;           /*レイアウト調整のため、コンテンツの内側に余白を作る*/
+        text-align: center;		/*コンテンツを中央に寄せる*/
+		margin-bottom: 100px;	/*コンテンツの下に余白を設ける*/
+    }
+
+/*＜画像に対する補足文＞*/
+p.explanation
+    {
+        font-size: 10px;        /*画像下に載せる文章を小さくする*/
+    }
+
+
+/*＜アニメーション実験＞Gemini提案版*/
+
+/* スライドショーのコンテナ */
+.slideshow-container {
+    width: 100%; /* 幅を調整 */
+    height: auto;
+    position: relative;
+    overflow: hidden; /* コンテナからはみ出る画像を隠す */
+  }
+  
+  /* 画像共通のスタイル */
+  .slideshow-image {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* すべての画像を同じ位置に重ねる */
+    top: 0;
+    left: 0;
+    opacity: 0; /* 最初はすべての画像を非表示にする */
+    animation: fade-in-out 15s infinite; /* アニメーションの設定 */
+  }
+  
+  /* 各画像にアニメーションの遅延を設定 */
+  .slideshow-image:nth-child(1) {
+    animation-delay: 0s; /* 1枚目の画像 */
+  }
+  
+  .slideshow-image:nth-child(2) {
+    animation-delay: 5s; /* 2枚目の画像は5秒遅れて開始 */
+  }
+  
+  .slideshow-image:nth-child(3) {
+    animation-delay: 10s; /* 3枚目の画像は10秒遅れて開始 */
+  }
+  
+  /* アニメーションのキーフレーム */
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    33.33% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }

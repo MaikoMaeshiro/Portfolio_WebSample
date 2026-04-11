@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | My Works</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="hero" class="reveal">
+        <h1 id="p-name">LOADING...</h1>
+        <p class="mono" id="p-title"></p>
+    </header>
+
+    <section id="profile" class="reveal">
+        <h2 class="section-title">PROFILE</h2>
+        <div class="profile-container">
+            <div class="profile-img-box">
+                <img id="p-img" src="" alt="Profile">
+            </div>
+            <div class="profile-text">
+                <p id="p-intro"></p>
+                <h3>資格一覧 / CERTIFICATIONS</h3>
+                <ul id="p-qual" class="mono"></ul>
+                <a href="" id="github-link" class="btn" target="_blank">GitHub Profile ↗</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="works">
+        <h2 class="section-title reveal">WORKS</h2>
+        <div id="accordion-container"></div>
+    </section>
+
+    <footer>
+        <p class="mono">&copy; 2026 <span id="footer-name"></span></p>
+        <p class="mono ai-note">Built with HTML/CSS/JS (Code assisted by Gemini AI)</p>
+    </footer>
+
+    <script src="config.js"></script>
+    <script>
+        // データの反映
+        document.getElementById('p-name').innerText = CONFIG.profile.name;
+        document.getElementById('footer-name').innerText = CONFIG.profile.name;
+        document.getElementById('p-title').innerText = CONFIG.profile.title;
+        document.getElementById('p-intro').innerText = CONFIG.profile.intro;
+        document.getElementById('p-img').src = CONFIG.profile.image;
+        document.getElementById('github-link').href = CONFIG.profile.github;
+        
+        const qualList = document.getElementById('p-qual');
+        CONFIG.profile.qualifications.forEach(q => {
+            const li = document.createElement('li');
+            li.innerText = q;
+            qualList.appendChild(li);
+        });
+
+        const container = document.getElementById('accordion-container');
+        CONFIG.works.forEach(work => {
+            const item = document.createElement('div');
+            item.className = 'accordion-item reveal';
+            
+            // YouTube動画がある場合のみ表示
+            const videoHTML = work.videoID ? `
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/${work.videoID}" frameborder="0" allowfullscreen></iframe>
+                </div>` : '';
+
+            item.innerHTML = `
+                <div class="accordion-header" onclick="toggleAccordion('${work.id}')">
+                    <span class="work-title-text">${work.title}</span>
+                    <span class="icon">▼</span>
+                </div>
+                <div id="${work.id}" class="accordion-content">
+                    <div class="content-inner">
+                        <p class="summary">${work.summary}</p>
+                        ${videoHTML}
+                        <div class="visual-grid">
+                            <figure><img src="${work.images.title}"><figcaption>タイトル画面</figcaption></figure>
+                            <figure><img src="${work.images.main}"><figcaption>メイン画面</figcaption></figure>
+                        </div>
+                        <div class="meta-box mono">
+                            <a href="${work.github}" class="btn mini" target="_blank">View GitHub Repo ↗</a>
+                            <p><strong>Stack:</strong> ${work.stack}</p>
+                            <p><strong>Duration:</strong> ${work.duration} / <strong>Team:</strong> ${work.team}</p>
+                        </div>
+                        <div class="text-info">
+                            <h3>制作背景</h3><p>${work.background}</p>
+                            <h3>挑戦したこと</h3><p>${work.challenge}</p>
+                        </div>
+                        <div class="detail-highlight">
+                            <h3>${work.detail.subtitle}</h3>
+                            <div class="code-compare-view">
+                                <img src="${work.detail.codeImg}" alt="Code">
+                                <img src="${work.detail.uiImg}" alt="UI">
+                            </div>
+                            <p class="comment mono">// ${work.detail.comment}</p>
+                            <h3>学んだこと・振り返り</h3>
+                            <p>${work.detail.learning}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.appendChild(item);
+        });
+
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const header = content.previousElementSibling;
+            content.classList.toggle('active');
+            header.classList.toggle('open');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
