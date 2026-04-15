@@ -9,42 +9,39 @@
 <body>
 
     <header id="hero">
-        <div class="hero-content">
+        <div class="hero-inner">
             <h1>眞榮城 舞子 / Maeshiro Maiko</h1>
             <p>Student Developer</p>
         </div>
     </header>
 
     <main>
-        <section id="about" class="fade-in">
-            <div class="container">
-                <h2>About Me</h2>
+        <section id="about" class="section-block fade-in">
+            <div class="section-title"><h2>ABOUT</h2></div>
+            <div class="section-content">
                 <p>プログラミング学習中の眞榮城です。モノ作りを楽しんでいます！</p>
                 
-                <div class="game-accordion">
-                    <button id="toggle-games" class="retro-btn">
-                        <span>💾 セーブデータ（ゲーム遍歴）</span>
-                        <span class="icon">+</span>
-                    </button>
-                    <div class="accordion-content">
+                <div class="accordion-item">
+                    <button class="acc-header">🎮 My Game History <span class="icon">+</span></button>
+                    <div class="acc-body">
                         <ul id="game-list"></ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="works" class="fade-in">
-            <div class="container">
-                <h2>Works</h2>
-                <div id="works-container"></div>
-            </div>
+        <section id="works" class="section-block fade-in">
+            <div class="section-title"><h2>WORKS</h2></div>
+            <div id="works-container" class="section-content">
+                </div>
         </section>
 
-        <footer id="contact" class="fade-in">
-            <div class="container">
-                <a id="github-link" href="#" target="_blank" class="github-btn">GitHub Profile</a>
+        <section id="contact" class="section-block fade-in">
+            <div class="section-title"><h2>CONTACT</h2></div>
+            <div class="section-content">
+                <a id="github-link" href="#" target="_blank" class="gh-link">GitHub Profile</a>
             </div>
-        </footer>
+        </section>
     </main>
 
     <script src="config.js"></script>
